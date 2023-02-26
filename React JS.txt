@@ -21,3 +21,34 @@ Mounting
 	componentDidMount
 		The componentDidMount() method is called after the component is rendered.
 		This is where you run statements that requires that the component is already placed in the DOM.
+
+Updating
+	The next phase in the lifecycle is when a component is updated.
+	A component is updated whenever there is a change in the component's state or props.
+	React has five built-in methods that gets called, in this order, when a component is updated:
+
+		getDerivedStateFromProps()
+		shouldComponentUpdate()
+		render()
+		getSnapshotBeforeUpdate()
+		componentDidUpdate()
+
+	shouldComponentUpdate
+		In the shouldComponentUpdate() method you can return a Boolean value that specifies whether React should continue with the rendering or not.
+		The default value is true.
+
+	getSnapshotBeforeUpdate
+		In the getSnapshotBeforeUpdate() method you have access to the props and state before the update, meaning that even after the update, you can check what the values were before the update.
+		If the getSnapshotBeforeUpdate() method is present, you should also include the componentDidUpdate() method, otherwise you will get an error.
+
+	componentDidUpdate
+		The componentDidUpdate method is called after the component is updated in the DOM.
+
+Unmounting
+	The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
+	React has only one built-in method that gets called when a component is unmounted:
+
+		componentWillUnmount()
+
+	componentWillUnmount
+		The componentWillUnmount method is called when the component is about to be removed from the DOM.
