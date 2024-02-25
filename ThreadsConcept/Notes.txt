@@ -1,0 +1,26 @@
+MultiTasking and MultiThreading
+
+-> MultiTasking refers to a computer's ability to perform multiple jobs concurrently.
+	Ex : Chrome, Mp3, Notepad running simultaneously.
+-> A thread is a single sequence of execution within a program.
+	Ex : A single tab in a Chrome browser.
+-> MultiThreading refers to multiple threads of control within a single program.
+	Ex : Opening multiple tabs in a Chrome.
+
+Threads and Processes
+
+-> An executing instance of a Program is called PROCESS.
+-> A THREAD is a subset of the process.
+
+* Processes have their own address space whereas threads share the address space of the process that created it.
+
+WHY
+
+Threads are used in programming for several reasons, primarily to achieve concurrent execution and to improve the overall performance and responsiveness of a program. Here are some common reasons to use threads:
+	Concurrency
+	Responsiveness
+	Parallelism
+	Background Processing
+	Optimizing Resource Utilization
+	Asynchronous Programming
+	Modularization
