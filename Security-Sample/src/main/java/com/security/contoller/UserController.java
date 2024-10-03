@@ -15,8 +15,8 @@ public class UserController {
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
+        user.setDPass(user.getPassword());
         user.setPassword(encoder.encode(user.getPassword()));
-        System.out.println(user.getPassword());
         return userRepo.save(user);
     }
 }
