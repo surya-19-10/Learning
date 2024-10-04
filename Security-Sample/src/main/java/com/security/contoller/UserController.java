@@ -2,6 +2,7 @@ package com.security.contoller;
 
 import com.security.security.core.User;
 import com.security.security.repo.MyUserRepo;
+import com.security.security.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +18,8 @@ public class UserController {
     private MyUserRepo userRepo;
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtService jwtService;
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
@@ -29,7 +32,7 @@ public class UserController {
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         if(authentication.isAuthenticated()) {
-            return "Success";
+            return jwtService.generateToken(user.getUsername());
         } else {
             return "Login Failed";
         }
